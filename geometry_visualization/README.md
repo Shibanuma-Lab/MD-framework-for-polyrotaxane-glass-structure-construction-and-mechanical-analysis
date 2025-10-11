@@ -5,11 +5,9 @@ This directory contains a complete set of **geometry-based visualization scripts
 The workflow enables users to **extract geometric information** (molecular centers and orientations) from LAMMPS data files and visualize the PRg model using **PyVista**.  
 
 The visualization is **simplified but physically representative**, using:
-- **Cylinders or tubes** for PEG chains  
-- **Hollow frustums (truncated cones)** for cyclodextrin (CD) rings  
-- **Spheres** for chain ends  
-
-This representation captures the **spatial arrangement, orientation, and migration of CD molecules** during deformation.
+- **Tubes** for axis polymer  
+- **Hollow frustums (truncated cones)** for cyclic molecule  
+- **Spheres** for end-capping group  
 
 ---
 
