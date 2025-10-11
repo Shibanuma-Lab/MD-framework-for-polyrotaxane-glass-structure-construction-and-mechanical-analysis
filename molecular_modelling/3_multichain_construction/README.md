@@ -45,7 +45,7 @@ num_chains = 10                       # number of PRg chains to generate
 box_half = 196.228301691482           # half box length (Å)
 min_distance = 0.1                    # minimum allowed intermolecular distance
 max_attempts = 100                    # maximum trial attempts per molecule
-input_filename = "prg_n1456.data"     # input single-chain data file
-output_filename = "prg_chains_10.data" # output multi-chain data file
+input_filename = "prg_singlechain.data"     # input single-chain data file
+output_filename = "prg_systems.data" # output multi-chain data file
 # =============================================================
 
