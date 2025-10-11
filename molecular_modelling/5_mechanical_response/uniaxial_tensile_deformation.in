@@ -1,0 +1,77 @@
+# ==================================================================
+# Script: Tensile deformation simulation
+# ------------------------------------------------------------------
+# This script performs uniaxial tensile deformation of the equilibrated
+# PRg system using LAMMPS. The strain rate and deformation direction
+# are user-defined. The box deformation proceeds incrementally with
+# periodic data output for post-analysis.
+#
+# Control condition:
+#   - strain rate
+#
+# Input parameters:
+#   1. strain rate
+#   2. direction
+#   3. total number of steps
+#   4. output interval
+#
+# ==================================================================
+
+# ----------------- Initialization -----------------
+units           real
+atom_style      full
+bond_style      hybrid harmonic
+angle_style     hybrid harmonic
+dihedral_style  hybrid fourier
+improper_style  hybrid cvff
+pair_style      hybrid lj/charmm/coul/long 9.0 10.0 10.0
+kspace_style    pppm 0.0001
+pair_modify     mix arithmetic
+special_bonds   amber
+package         gpu 1 neigh no
+
+# ----------------- User Parameters -----------------
+variable num_chains     equal 50          # number of PRg chains
+variable temp_load      equal 300         # tensile test temperature (K)
+variable strain_rate    equal 1.0e-5      # engineering strain rate (1/ps)
+variable num_steps      equal 200000      # total steps
+variable output_int     equal 500         # data output interval
+# deformation direction: x/y/z (modify in fix deform command below)
+# ---------------------------------------------------
+
+# ----------------- System Definition -----------------
+read_data       Step10-final.data
+include         system.in.settings
+
+# ----------------- Thermodynamic Output -----------------
+variable lo0    equal lx
+variable lo     equal ${lo0}
+variable strain equal (lx - ${lo}) / ${lo}
+
+thermo          50
+thermo_style    custom step time temp v_strain press etotal ke pe vol lx ly lz pxx pyy pzz density
+
+# optional trajectory output:
+# dump          1 all custom 1000 tensile-${num_chains}chains.lammpstrj id mol type x y z
+# dump_modify   1 sort id
+
+reset_timestep  0
+
+# ----------------- Fixes -----------------
+fix             1 all deform 1 x erate ${strain_rate} units box remap x
+fix             2 all nvt temp ${temp_load} ${temp_load} $(100.0*dt)
+
+# ----------------- Simulation Loop -----------------
+variable        num_segments equal v_num_steps / v_output_int
+label           loop
+variable        seg loop ${num_segments}
+
+run             ${output_int} start 0 stop ${num_steps}
+write_data      tensile-segment-${seg}.data
+
+next            seg
+jump            SELF loop
+
+# ----------------- End of Simulation -----------------
+# run           ${num_steps}
+# write_data    tensile-final.data
