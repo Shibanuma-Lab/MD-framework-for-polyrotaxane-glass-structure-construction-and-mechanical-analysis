@@ -23,7 +23,7 @@ This script automatically **generates a polyethylene glycol (PEG) chain** capped
 ### Features  
 - Flexible control of **chain length** via the number of PEG monomers (`num_monomers`).  
 - Generates a **chemically continuous** chain with both termini capped.  
-- Automatically writes **CONECT records** to describe bonding topology for visualization or downstream conversion (e.g., OpenBabel → MOL2).
+- Automatically writes **CONECT records** to describe bonding topology.
 
 ---
 
