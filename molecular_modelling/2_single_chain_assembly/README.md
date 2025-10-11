@@ -24,7 +24,7 @@ Located at the top of the script:
 ```python
 # -------------------- User parameters --------------------
 front_monomer = 5                 # PEG monomer index from the front (1-based)
-back_monomer = 6                  # PEG monomer index from the back  (1-based)
+back_monomer = 5                  # PEG monomer index from the back  (1-based)
 num_cd = 91                       # number of CD molecules to insert
 input_filename = "peg_n728.data"  # LAMMPS data file containing the PEG
 # ---------------------------------------------------------
