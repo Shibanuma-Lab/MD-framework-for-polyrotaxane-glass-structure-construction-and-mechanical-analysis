@@ -18,4 +18,20 @@ These components form the basis of all subsequent modeling stages in the PRg con
 This script automatically **generates a polyethylene glycol (PEG) chain** capped with adamantane end groups and outputs the molecular structure as a `.pdb` file.
 
 **Topology:**
+[Left adamantane end] -- [PEG chain with N monomers] -- [Right adamantane end]
 
+### Features  
+- Flexible control of **chain length** via the number of PEG monomers (`num_monomers`).  
+- Generates a **chemically continuous** chain with both termini capped.  
+- Automatically writes **CONECT records** to describe bonding topology for visualization or downstream conversion (e.g., OpenBabel → MOL2).
+
+---
+
+## 🧩 User Parameters  
+Located at the top of the script:
+
+```python
+# -------------------- User parameters --------------------
+num_monomers = 728                # number of PEG monomers
+pdb_file = "peg_with_endcap.pdb"  # output PDB filename
+# ---------------------------------------------------------
