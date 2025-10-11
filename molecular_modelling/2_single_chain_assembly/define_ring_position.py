@@ -13,7 +13,7 @@ from typing import List, Tuple, Optional
 front_monomer = 5                 # PEG monomer index from the front (1-based)
 back_monomer = 6                  # PEG monomer index from the back  (1-based)
 num_cd = 91                       # number of CD molecules to insert
-input_filename = "peg_chain.data"  # LAMMPS data file containing the PEG
+input_filename = "polymer_chain.data"  # LAMMPS data file containing the PEG
 # ---------------------------------------------------------
 
 
@@ -149,4 +149,5 @@ if __name__ == "__main__":
 
     generate_lammps_in_file(cd_anchors, out_in_path, input_filename)
     print(f"Wrote LAMMPS input: {out_in_path}")
+
 
