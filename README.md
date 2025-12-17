@@ -13,13 +13,11 @@ To address this limitation, this repository provides a **unified and extensible 
 In addition, a **geometry-based molecular visualization module** is provided to intuitively and quantitatively represent structural configurations and their evolution during deformation.
 
 ---
-
 ## Repository Structure
 
 The repository consists of two main modules, corresponding directly to the methodological components of the paper.
 
 MD-framework-for-polyrotaxane-glass-structure-construction-and-mechanical-analysis/
-│
 ├── molecular_modelling/
 │ ├── 1_component_construction/
 │ ├── 2_single_chain_assembly/
