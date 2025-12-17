@@ -17,18 +17,18 @@ In addition, a **geometry-based molecular visualization module** is provided to 
 
 The repository consists of two main modules, corresponding directly to the methodological components of the paper.
 
+```text
 MD-framework-for-polyrotaxane-glass-structure-construction-and-mechanical-analysis/
-├── molecular_modelling/
-│ ├── 1_component_construction/
-│ ├── 2_single_chain_assembly/
-│ ├── 3_multichain_construction/
-│ ├── 4_annealing_equilibration/
-│ └── 5_mechanical_response/
-│
-├── geometry_visualization/
-│
-└── README.md
-
+|-- molecular_modelling/
+|   |-- 1_component_construction/
+|   |-- 2_single_chain_assembly/
+|   |-- 3_multichain_construction/
+|   |-- 4_annealing_equilibration/
+|   `-- 5_mechanical_response/
+|
+|-- geometry_visualization/
+|
+`-- README.md
 ---
 
 ## Molecular Modelling Workflow
