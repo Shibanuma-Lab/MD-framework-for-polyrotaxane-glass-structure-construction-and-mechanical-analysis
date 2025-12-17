@@ -1,8 +1,7 @@
 ## Overview
 
 This repository provides a **comprehensive molecular dynamics (MD) framework** for the modelling, equilibration, and mechanical analysis of **polyrotaxane glass (PRG)**.  
-
-To address this limitation, this repository provides a **unified and extensible MD workflow** that integrates:
+It provides a **unified and extensible MD workflow** that integrates:
 
 1. Molecular component generation  
 2. Single-chain assembly  
